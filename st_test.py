@@ -50,13 +50,8 @@ if click:
     else:
         area = 1
 
-    dat = [
-        [gender, married, dependents, education, selfEmp, appIncome, coIncome, LoanAmt, term, CreditHistory, area]
-    ]
-
-    scaler = StandardScaler()
-    Xscaled = scaler.fit_transform(dat)  # Scale the input data
-
+    dat = [gender, married, dependents, education, selfEmp, appIncome, coIncome, LoanAmt, term, CreditHistory, area]
+    
     model = pickle.load(open("svm_model.pkl", "rb"))
     res = model.predict(Xscaled)
 
